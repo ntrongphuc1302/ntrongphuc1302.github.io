@@ -1,0 +1,83 @@
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* height: 100vh; */
+  margin: 0;
+}
+
+h1 {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.control {
+  width: 100%;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: space-between;
+}
+
+.container {
+  width: 210px;
+  text-align: left;
+  background-color: #1f1f1f;
+  padding: 5px 20px 5px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.status {
+  cursor: pointer;
+  display: inline-block;
+  width: 50px;
+  text-align: left;
+  margin-left: 5px;
+}
+
+.status.running {
+  color: green;
+}
+
+.status.stopped {
+  color: red;
+}
+
+/* .page-title {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 45px;
+} */
+
+/* .page-title:hover {
+  color: rgb(255, 0, 0);
+} */
+
+.page-title {
+  animation: colorChange 0.5s infinite alternate;
+}
+
+@keyframes colorChange {
+  0% {
+    color: #ffffff;
+  }
+  100% {
+    color: rgb(255, 0, 0);
+  }
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Send the background behind other content */
+}
