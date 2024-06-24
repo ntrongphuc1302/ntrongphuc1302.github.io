@@ -1,6 +1,9 @@
 body {
   background-color: #121212;
 }
+audio {
+  display: none;
+}
 .container {
   position: fixed;
   top: 0;
