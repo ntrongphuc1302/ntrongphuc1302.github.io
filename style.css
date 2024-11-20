@@ -1,0 +1,108 @@
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  text-align: center; /* Center text inside elements */
+  padding: 10px;
+}
+
+.container {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Adjusting the spacing between elements */
+p {
+  margin: 20px 0;
+}
+
+/* Badge Section Styling */
+.badges {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: nowrap; /* Prevent badges from wrapping to a new line */
+  overflow-x: auto; /* Allow horizontal scrolling if the screen is too narrow */
+  padding: 10px;
+}
+
+.badges a img {
+  height: 24px; /* Uniform height for all badges */
+  flex-shrink: 0; /* Prevent shrinking of badges */
+  border-radius: 8px; /* Rounded border */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add slight shadow for effect */
+}
+
+.badges a img:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+/* Hide horizontal scrollbar for modern browsers */
+.badges::-webkit-scrollbar {
+  display: none;
+}
+
+.badges {
+  -ms-overflow-style: none; /* Internet Explorer */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* For responsiveness on smaller screens */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px; /* Add padding on smaller screens */
+  }
+
+  img {
+    max-width: 100%;
+    height: auto; /* Ensure images scale properly */
+  }
+
+  /* Typing SVG Image adjustments */
+  .typing-animation img {
+    width: 90%; /* Make it take up 90% of the screen width */
+    max-width: 600px; /* Limit max-width to prevent it from becoming too large */
+  }
+
+  /* Snake Animation adjustments */
+  .snake-animation img {
+    width: 90%; /* Make it take up 90% of the screen width */
+    max-width: 700px; /* Limit max-width to avoid stretching */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Make the text size smaller for very small screens */
+  p {
+    font-size: 14px;
+  }
+
+  /* Typing SVG Image adjustments for very small screens */
+  .typing-animation img {
+    width: 80%; /* Make the typing animation text take up 80% of the width */
+    max-width: 500px; /* Limit maximum width on small screens */
+  }
+
+  /* Snake Animation adjustments for very small screens */
+  .snake-animation img {
+    width: 80%; /* Make the snake animation take up 80% of the width */
+    max-width: 400px; /* Limit maximum width to prevent it from becoming too wide */
+  }
+}
