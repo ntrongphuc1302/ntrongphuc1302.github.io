@@ -25,30 +25,53 @@ body {
   text-align: center;
 }
 
-/* Adjusting the spacing between elements */
-p {
-  margin: 20px 0;
+/* Badge Section Styling */
+.badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
-/* For responsiveness on smaller screens */
+.badges a img {
+  width: 120px;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.badges a img:hover {
+  transform: scale(1.1);
+}
+
+/* Typing Animation Section */
+.typing-animation img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Snake Animation Section */
+.snake-animation img {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Responsiveness */
 @media (max-width: 768px) {
   .container {
-    padding: 20px; /* Add padding on smaller screens */
+    padding: 20px;
   }
 
-  img {
-    max-width: 100%;
-    height: auto; /* Ensure images scale properly */
+  .badges a img {
+    width: 100px;
   }
 
-  /* Typing SVG Image adjustments */
   .typing-animation img {
     width: 100%;
   }
 
-  /* Snake Animation adjustments */
   .snake-animation img {
-    max-width: 90%;
+    width: 90%;
   }
 }
 
@@ -58,7 +81,11 @@ p {
     font-size: 14px;
   }
 
+  .badges a img {
+    width: 80px;
+  }
+
   .snake-animation img {
-    max-width: 80%;
+    width: 80%;
   }
 }
