@@ -1,21 +1,64 @@
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
 body {
   background-color: #121212;
-  color: #ffffff; /* Default text color for readability */
+  color: #ffffff;
+  font-family: Arial, sans-serif;
   margin: 0;
   display: flex;
-  justify-content: center; /* Horizontally center the content */
-  align-items: center; /* Vertically center the content */
-  min-height: 100vh; /* Ensures full-screen height */
-  text-align: center; /* Center align text inside the elements */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  text-align: center; /* Center text inside elements */
+  padding: 10px;
 }
 
 .container {
-  position: relative;
+  max-width: 900px;
   width: 100%;
-  height: 100%;
-  z-index: 1; /* Ensure it's above the background */
+  text-align: center;
 }
 
+/* Adjusting the spacing between elements */
 p {
-  margin: 20px 0; /* Add some spacing between paragraphs */
+  margin: 20px 0;
+}
+
+/* For responsiveness on smaller screens */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px; /* Add padding on smaller screens */
+  }
+
+  img {
+    max-width: 100%;
+    height: auto; /* Ensure images scale properly */
+  }
+
+  /* Typing SVG Image adjustments */
+  .typing-animation img {
+    width: 100%;
+  }
+
+  /* Snake Animation adjustments */
+  .snake-animation img {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Make the text size smaller for very small screens */
+  p {
+    font-size: 14px;
+  }
+
+  .snake-animation img {
+    max-width: 80%;
+  }
 }
