@@ -67,7 +67,7 @@ body {
 .typing-container {
   width: 100%;
   max-width: 800px; /* Chiều rộng gốc của ảnh SVG */
-  aspect-ratio: 800 / 120; /* Tỷ lệ W/H, có thể cần chỉnh số 120 */
+  aspect-ratio: 800 / 160; /* Tỷ lệ W/H, có thể cần chỉnh số 120 */
   margin: 40px auto;
 }
 
