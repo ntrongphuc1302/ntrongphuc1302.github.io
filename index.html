@@ -5,19 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Nguyen Trong Phuc — PX03 / PeterKing</title>
 
-    <!-- ✅ Favicon sáng & tối -->
-    <link
-      rel="icon"
-      media="(prefers-color-scheme: light)"
-      href="logo-dark.svg"
-      type="image/svg+xml"
-    />
-    <link
-      rel="icon"
-      media="(prefers-color-scheme: dark)"
-      href="logo-light.svg"
-      type="image/svg+xml"
-    />
+    <!-- 🌙🌓 Adaptive Favicon -->
+    <link rel="icon" id="favicon" type="image/svg+xml" href="logo-dark.svg" />
 
     <!-- Fira Code font -->
     <link
@@ -27,10 +16,25 @@
 
     <!-- Custom stylesheet -->
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Auto Switch Favicon Based on Theme -->
+    <script>
+      const darkIcon = "logo-dark.svg";
+      const lightIcon = "logo-light.svg";
+      const favicon = document.getElementById("favicon");
+
+      function updateFavicon(e) {
+        favicon.href = e.matches ? darkIcon : lightIcon;
+      }
+
+      const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      updateFavicon(darkQuery);
+      darkQuery.addEventListener("change", updateFavicon);
+    </script>
   </head>
 
   <body>
-    <main class="container">
+    <main class="container fade-in">
       <section class="center">
         <!-- 🖋 Typing animation -->
         <p>
@@ -114,7 +118,6 @@
           <img
             src="https://raw.githubusercontent.com/ntrongphuc1302/ntrongphuc1302/output/github-contribution-grid-snake-dark.svg"
             class="snake-animation"
-            alt="GitHub Snake Animation"
           />
         </p>
       </section>

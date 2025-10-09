@@ -1,11 +1,11 @@
-/* === Base Reset === */
+/* === Reset === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* === Color Variables === */
+/* === Colors === */
 :root {
   --brand-red: #ff3b3b;
   --brand-dark: #cc2b2b;
@@ -14,12 +14,11 @@
   --secondary-text: #b9b9b9;
 }
 
-/* === Light Mode Support === */
 @media (prefers-color-scheme: light) {
   :root {
-    --bg-color: #ffffff;
-    --text-color: #0f172a;
-    --secondary-text: #334155;
+    --bg-color: #fafafa;
+    --text-color: #111111;
+    --secondary-text: #333333;
   }
 }
 
@@ -29,14 +28,32 @@ body {
   height: 100%;
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
+  font-family: "Fira Code", monospace;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 10px;
   transition: background 0.3s ease, color 0.3s ease;
+  padding: 10px;
+  overflow-x: hidden;
+}
+
+/* === Fade-in Animation === */
+.fade-in {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* === Layout === */
@@ -49,8 +66,6 @@ body {
 /* === Typing animation === */
 .typing-img {
   max-width: 90%;
-  height: auto;
-  display: inline-block;
   margin: 20px 0;
 }
 
@@ -66,18 +81,17 @@ h1 {
   font-size: 1.6rem;
 }
 
-/* === About section === */
+/* === About Section === */
 .about {
   margin: 8px 0 18px;
   font-size: 0.98rem;
   color: var(--secondary-text);
 }
 
-/* === Badges Section === */
+/* === Badges === */
 .badges {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 15px;
   flex-wrap: nowrap;
   overflow-x: auto;
@@ -86,7 +100,6 @@ h1 {
 
 .badges a img {
   height: 26px;
-  flex-shrink: 0;
   border-radius: 8px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -95,15 +108,6 @@ h1 {
 .badges a img:hover {
   transform: scale(1.08);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-/* Hide horizontal scrollbar */
-.badges::-webkit-scrollbar {
-  display: none;
-}
-.badges {
-  -ms-overflow-style: none; /* IE */
-  scrollbar-width: none; /* Firefox */
 }
 
 /* === Connect Section === */
@@ -116,7 +120,6 @@ h1 {
 }
 
 .connect-row a img {
-  display: block;
   height: 34px;
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -128,11 +131,11 @@ h1 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-/* === Snake animation === */
+/* === Snake Animation === */
 .snake-animation {
-  display: block;
   max-width: 90%;
   margin: 20px auto 0;
+  display: block;
 }
 
 /* === Responsive === */
@@ -144,18 +147,5 @@ h1 {
   .typing-img,
   .snake-animation {
     width: 90%;
-    max-width: 600px;
-  }
-}
-
-@media (max-width: 480px) {
-  p {
-    font-size: 14px;
-  }
-
-  .typing-img,
-  .snake-animation {
-    width: 80%;
-    max-width: 400px;
   }
 }
