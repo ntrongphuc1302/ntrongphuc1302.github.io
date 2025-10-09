@@ -1,108 +1,152 @@
-/* CSS Reset */
+/* === Base Reset === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body Styling */
-body {
-  background-color: #121212;
-  color: #ffffff;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 100vh; /* Full viewport height */
-  text-align: center; /* Center text inside elements */
-  padding: 10px;
+/* === Color Variables === */
+:root {
+  --brand-red: #ff3b3b;
+  --brand-dark: #cc2b2b;
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --secondary-text: #b9b9b9;
 }
 
+/* === Body === */
+html,
+body {
+  height: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* === Layout === */
 .container {
   max-width: 900px;
   width: 100%;
   text-align: center;
 }
 
-/* Adjusting the spacing between elements */
-p {
+/* === Typing animation === */
+.typing-img {
+  max-width: 90%;
+  height: auto;
+  display: inline-block;
   margin: 20px 0;
 }
 
-/* Badge Section Styling */
+/* === Headings === */
+h1,
+h2,
+h3 {
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 1.6rem;
+}
+
+/* === About section === */
+.about {
+  margin: 8px 0 18px;
+  font-size: 0.98rem;
+  color: var(--secondary-text);
+}
+
+/* === Badges Section === */
 .badges {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 15px;
-  flex-wrap: nowrap; /* Prevent badges from wrapping to a new line */
-  overflow-x: auto; /* Allow horizontal scrolling if the screen is too narrow */
+  flex-wrap: nowrap;
+  overflow-x: auto;
   padding: 10px;
 }
 
 .badges a img {
-  height: 24px; /* Uniform height for all badges */
-  flex-shrink: 0; /* Prevent shrinking of badges */
-  border-radius: 8px; /* Rounded border */
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 8px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add slight shadow for effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .badges a img:hover {
-  transform: scale(1.1); /* Slight zoom effect on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  transform: scale(1.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Hide horizontal scrollbar for modern browsers */
+/* Hide horizontal scrollbar */
 .badges::-webkit-scrollbar {
   display: none;
 }
-
 .badges {
-  -ms-overflow-style: none; /* Internet Explorer */
+  -ms-overflow-style: none; /* IE */
   scrollbar-width: none; /* Firefox */
 }
 
-/* For responsiveness on smaller screens */
+/* === Connect Section === */
+.connect-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 12px 0 22px;
+}
+
+.connect-row a img {
+  display: block;
+  height: 34px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.connect-row a:hover img {
+  transform: scale(1.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* === Snake animation === */
+.snake {
+  display: block;
+  max-width: 90%;
+  margin: 20px auto 0;
+}
+
+/* === Responsive === */
 @media (max-width: 768px) {
   .container {
-    padding: 20px; /* Add padding on smaller screens */
+    padding: 20px;
   }
 
-  img {
-    max-width: 100%;
-    height: auto; /* Ensure images scale properly */
-  }
-
-  /* Typing SVG Image adjustments */
-  .typing-animation img {
-    width: 90%; /* Make it take up 90% of the screen width */
-    max-width: 600px; /* Limit max-width to prevent it from becoming too large */
-  }
-
-  /* Snake Animation adjustments */
-  .snake-animation img {
-    width: 90%; /* Make it take up 90% of the screen width */
-    max-width: 700px; /* Limit max-width to avoid stretching */
+  .typing-img,
+  .snake {
+    width: 90%;
+    max-width: 600px;
   }
 }
 
 @media (max-width: 480px) {
-  /* Make the text size smaller for very small screens */
   p {
     font-size: 14px;
   }
 
-  /* Typing SVG Image adjustments for very small screens */
-  .typing-animation img {
-    width: 80%; /* Make the typing animation text take up 80% of the width */
-    max-width: 500px; /* Limit maximum width on small screens */
-  }
-
-  /* Snake Animation adjustments for very small screens */
-  .snake-animation img {
-    width: 80%; /* Make the snake animation take up 80% of the width */
-    max-width: 400px; /* Limit maximum width to prevent it from becoming too wide */
+  .typing-img,
+  .snake {
+    width: 80%;
+    max-width: 400px;
   }
 }
