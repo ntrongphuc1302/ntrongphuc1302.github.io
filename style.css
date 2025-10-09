@@ -67,9 +67,8 @@ body {
 .typing-img {
   display: block;
   width: 100%; /* Chiếm toàn bộ chiều rộng container */
-  max-width: 1200px; /* Giới hạn tối đa nếu muốn */
-  height: auto; /* Giữ tỉ lệ ảnh */
-  margin: 40px auto; /* Căn giữa và khoảng cách trên/dưới */
+  height: 100%; /* Giữ tỉ lệ ảnh */
+  margin: 10px auto; /* Căn giữa và khoảng cách trên/dưới */
 }
 
 /* === Headings === */
