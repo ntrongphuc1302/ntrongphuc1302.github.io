@@ -14,6 +14,15 @@
   --secondary-text: #b9b9b9;
 }
 
+/* === Light Mode Support === */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #ffffff;
+    --text-color: #0f172a;
+    --secondary-text: #334155;
+  }
+}
+
 /* === Body === */
 html,
 body {
@@ -120,7 +129,7 @@ h1 {
 }
 
 /* === Snake animation === */
-.snake {
+.snake-animation {
   display: block;
   max-width: 90%;
   margin: 20px auto 0;
@@ -133,7 +142,7 @@ h1 {
   }
 
   .typing-img,
-  .snake {
+  .snake-animation {
     width: 90%;
     max-width: 600px;
   }
@@ -145,7 +154,7 @@ h1 {
   }
 
   .typing-img,
-  .snake {
+  .snake-animation {
     width: 80%;
     max-width: 400px;
   }
