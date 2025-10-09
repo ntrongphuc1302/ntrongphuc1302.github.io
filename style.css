@@ -63,12 +63,18 @@ body {
   text-align: center;
 }
 
-/* === Typing animation === */
+/* === Typing animation - ĐÃ THAY ĐỔI HOÀN TOÀN === */
+.typing-container {
+  width: 100%;
+  max-width: 800px; /* Chiều rộng gốc của ảnh SVG */
+  aspect-ratio: 800 / 120; /* Tỷ lệ W/H, có thể cần chỉnh số 120 */
+  margin: 40px auto;
+}
+
 .typing-img {
   display: block;
-  width: 100%; /* Chiếm toàn bộ chiều rộng container */
-  height: 100%; /* Giữ tỉ lệ ảnh */
-  margin: 10px auto; /* Căn giữa và khoảng cách trên/dưới */
+  width: 100%;
+  height: 100%; /* Lấp đầy khung chứa đã có tỷ lệ chuẩn */
 }
 
 /* === Headings === */
@@ -146,8 +152,10 @@ h1 {
     padding: 20px;
   }
 
-  .typing-img,
+  /* Sửa lại selector cho ảnh snake */
   .snake-animation {
     width: 90%;
   }
+
+  /* Xóa selector cũ của .typing-img trong media query vì đã có .typing-container xử lý */
 }
