@@ -1,3 +1,26 @@
+// Live clock — header
+function updateHeaderClock() {
+  const el = document.getElementById("header-clock");
+  if (!el) return;
+  const now = new Date();
+  const hanoi = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Ho_Chi_Minh" }));
+  const date = hanoi.toLocaleDateString("en-US", {
+    weekday: "long",
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
+  const time = hanoi.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true,
+  });
+  el.textContent = date + " " + time + " VN";
+}
+updateHeaderClock();
+setInterval(updateHeaderClock, 1000);
+
 // Scroll reveal
 const reveals = document.querySelectorAll(".reveal");
 const revealObserver = new IntersectionObserver(
