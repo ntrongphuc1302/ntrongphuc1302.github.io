@@ -119,6 +119,15 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.header-clock {
+  font-size: 0.72rem;
+  color: var(--accent-green);
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 8px var(--accent-green);
 }
 
 .status-dot {
@@ -139,11 +148,36 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ============================================================
+   Header Bar
+   ============================================================ */
+.header-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 0.5rem 0 0;
+}
+
+/* ============================================================
    Hero
    ============================================================ */
 .hero {
   width: 100%;
   padding: 3rem 0 1.5rem;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.hero-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .hero-text {
@@ -176,6 +210,11 @@ a { color: inherit; text-decoration: none; }
 .name-line.accent {
   color: var(--accent);
   text-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
+}
+
+.mono-accent {
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(229, 9, 20, 0.35);
 }
 
 .hero-tagline {
@@ -229,6 +268,11 @@ a { color: inherit; text-decoration: none; }
 .about-text strong {
   color: var(--text-primary);
   font-weight: 600;
+}
+
+.about-text .mono-accent {
+  color: var(--accent) !important;
+  text-shadow: 0 0 10px rgba(229, 9, 20, 0.35);
 }
 
 .name-highlight {
@@ -334,10 +378,10 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ============================================================
-   150% Zoom — PC display
+   160% Zoom — PC display
    ============================================================ */
 @media (min-width: 601px) {
-  html { zoom: 1.5; }
+  html { zoom: 1.6; }
 }
 
 /* ============================================================
