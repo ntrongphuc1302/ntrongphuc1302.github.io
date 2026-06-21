@@ -1,161 +1,349 @@
-/* === Reset === */
-* {
+/* ============================================================
+   PX03 — Terminal Edition
+   Monospace · Neon on Black · CRT scanline overlay
+   ============================================================ */
+
+:root {
+  --bg: #0c0c0c;
+  --bg-2: #111111;
+  --surface: #141414;
+  --surface-hover: #1a1a1a;
+  --border: #1f1f1f;
+  --text-primary: #e2e2e2;
+  --text-secondary: #888888;
+  --text-muted: #3a3a3a;
+  --accent: #e50914;
+  --accent-green: #3cff65;
+  --accent-dim: rgba(60, 255, 101, 0.07);
+  --accent-mid: rgba(60, 255, 101, 0.18);
+  --accent-glow: rgba(60, 255, 101, 0.5);
+  --prompt: #3cff65;
+  --font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
+  --radius: 6px;
+  --radius-sm: 4px;
+  --container: 720px;
+}
+
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* === Colors === */
-:root {
-  --brand-red: #ff3b3b;
-  --brand-dark: #cc2b2b;
-  --bg-color: #121212;
-  --text-color: #ffffff;
-  --secondary-text: #b9b9b9;
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg-color: #fafafa;
-    --text-color: #111111;
-    --secondary-text: #333333;
-  }
-}
-
-/* === Body === */
-html,
 body {
-  height: 100%;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: "Fira Code", monospace;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  transition: background 0.3s ease, color 0.3s ease;
-  padding: 10px;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.65;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-/* === Fade-in Animation === */
-.fade-in {
-  opacity: 0;
-  transform: translateY(15px);
-  animation: fadeInUp 1s ease forwards;
+::selection {
+  background: var(--accent-green);
+  color: var(--bg);
 }
 
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #333; }
+
+a { color: inherit; text-decoration: none; }
+
+/* ============================================================
+   CRT Scanlines
+   ============================================================ */
+.scanlines {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.18) 2px,
+    rgba(0, 0, 0, 0.18) 4px
+  );
+  border-radius: 2px;
 }
 
-/* === Layout === */
-.container {
-  max-width: 900px;
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 100% 100% at 50% 0%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+}
+
+/* ============================================================
+   Layout
+   ============================================================ */
+.page-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  text-align: center;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 2rem 5rem;
 }
 
-/* === Typing animation - ĐÃ THAY ĐỔI HOÀN TOÀN === */
-.typing-container {
+/* ============================================================
+   Header
+   ============================================================ */
+.site-header {
   width: 100%;
-  max-width: 800px; /* Chiều rộng gốc của ảnh SVG */
-  aspect-ratio: 800 / 160; /* Tỷ lệ W/H, có thể cần chỉnh số 120 */
-  margin: 40px auto;
+  padding: 1.5rem 0 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(to bottom, var(--bg) 60%, transparent);
 }
 
-.typing-img {
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  box-shadow:
+    0 0 0 2px var(--bg),
+    0 0 6px var(--accent-green),
+    0 0 12px var(--accent-green);
+  animation: pulse-green 2s ease-in-out infinite;
+}
+
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 2px var(--bg), 0 0 6px var(--accent-green), 0 0 12px var(--accent-green); }
+  50%       { opacity: 0.5; box-shadow: 0 0 0 2px var(--bg), 0 0 10px var(--accent-green), 0 0 20px var(--accent-green); }
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero {
+  width: 100%;
+  padding: 3rem 0 1.5rem;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.hero-eyebrow {
+  font-size: 0.72rem;
+  color: var(--accent-green);
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+}
+
+.hero-name {
+  font-size: clamp(2.6rem, 9vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  display: flex;
+  flex-direction: column;
+}
+
+.name-line {
   display: block;
-  width: 100%;
-  height: 100%; /* Lấp đầy khung chứa đã có tỷ lệ chuẩn */
+  color: var(--text-primary);
 }
 
-/* === Headings === */
-h1,
-h2,
-h3 {
-  margin: 10px 0;
+.name-line.accent {
+  color: var(--accent);
+  text-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
+}
+
+.hero-tagline {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  height: 1.6em;
+  letter-spacing: 0.03em;
+}
+
+.cursor-blink {
+  color: var(--accent-green);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ============================================================
+   Section structure
+   ============================================================ */
+.section-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+  font-family: var(--font-mono);
+}
+
+.prompt {
+  color: var(--prompt);
+  text-shadow: 0 0 8px var(--accent-green);
+  font-weight: 600;
+  margin-right: 0.3rem;
+}
+
+.about {
+  width: 100%;
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.about-text {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--text-secondary);
+  max-width: 560px;
+}
+
+.about-text strong {
+  color: var(--text-primary);
   font-weight: 600;
 }
 
-h1 {
-  font-size: 1.6rem;
+.name-highlight {
+  color: var(--accent-green) !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 12px rgba(60, 255, 101, 0.3);
 }
 
-/* === About Section === */
-.about {
-  margin: 8px 0 18px;
-  font-size: 0.98rem;
-  color: var(--secondary-text);
+.mono-accent {
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(229, 9, 20, 0.35);
 }
 
-/* === Badges === */
-.badges {
+/* ============================================================
+   Links
+   ============================================================ */
+.links {
+  width: 100%;
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.link-grid {
   display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  padding: 10px;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.badges a img {
-  height: 26px;
-  border-radius: 8px;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.badges a img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-/* === Connect Section === */
-.connect-row {
+.link-card {
   display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 12px 0 22px;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
 }
 
-.connect-row a img {
-  height: 34px;
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+.link-card:hover {
+  background: var(--surface-hover);
+  border-color: var(--accent-green);
+  box-shadow: 0 0 0 1px var(--accent-green), 0 0 16px rgba(60, 255, 101, 0.08);
 }
 
-.connect-row a:hover img {
-  transform: scale(1.08);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+.link-card:hover .prompt {
+  text-shadow: 0 0 12px var(--accent-green);
 }
 
-/* === Snake Animation === */
-.snake-animation {
-  max-width: 90%;
-  margin: 20px auto 0;
-  display: block;
+.link-card-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  min-width: 70px;
 }
 
-/* === Responsive === */
-@media (max-width: 768px) {
-  .container {
-    padding: 20px;
-  }
+.link-card-sub {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-  /* Sửa lại selector cho ảnh snake */
-  .snake-animation {
-    width: 90%;
-  }
+.link-card:hover .link-card-title {
+  color: var(--accent-green);
+}
 
-  /* Xóa selector cũ của .typing-img trong media query vì đã có .typing-container xử lý */
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-footer {
+  width: 100%;
+  padding: 3rem 0 1rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.site-footer p {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+
+.footer-accent {
+  color: var(--accent);
+}
+
+/* ============================================================
+   Scroll reveal
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 600px) {
+  .page-wrapper { padding: 0 1.25rem 4rem; }
+  .hero         { padding: 2rem 0 1.5rem; }
+  .about        { padding: 2.5rem 0; }
+  .links        { padding: 2.5rem 0; }
+}
+
+@media (max-width: 420px) {
+  .hero-name { font-size: 2.2rem; }
+  .link-card-sub { display: none; }
 }

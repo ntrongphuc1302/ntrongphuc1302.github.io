@@ -1,47 +1,56 @@
-<!-- 🖋 Typing animation -->
 <p align="center">
-  <img
-    src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&repeat=true&center=true&vCenter=true&width=1000&size=48&color=FF3B3B&lines=Hello;Xin+ch%C3%A0o;%E4%BD%A0%E5%A5%BD;Hola;Bonjour;Hallo;%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF;%EC%95%88%EB%85%95;Ol%C3%A1;%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82"
-    alt="Hello typing animation"
-  />
+  <img src="https://img.shields.io/github/stars/ntrongphuc1302?color=e50914&style=flat" />
+  <img src="https://img.shields.io/github/followers/ntrongphuc1302?color=e50914&style=flat" />
+  <img src="https://img.shields.io/badge/Repos-9-e50914?style=flat" />
+  <img src="https://img.shields.io/badge/HCM%20VN-e50914?style=flat" />
 </p>
 
-<!-- 🔥 Social badges -->
 <p align="center">
-  <!-- ⭐ Stars -->
-  <a href="https://github.com/ntrongphuc1302?tab=repositories&sort=stargazers">
-    <img alt="Total Stars" title="Total stars on GitHub" src="https://custom-icon-badges.demolab.com/github/stars/ntrongphuc1302?color=FF3B3B&style=for-the-badge&labelColor=CC2B2B&logo=star&logoColor=white&label=Stars"/>
-  </a>
-  <!-- 👥 Followers -->
-  <a href="https://github.com/ntrongphuc1302?tab=followers">
-    <img alt="Followers" title="Follow me on GitHub" src="https://custom-icon-badges.demolab.com/github/followers/ntrongphuc1302?color=FF3B3B&style=for-the-badge&labelColor=CC2B2B&logo=person-add&logoColor=white&label=Followers"/>
-  </a>
+  <b><span id="live-clock">--:--:--</span> (ICT)</b>
 </p>
 
-## 💫 About Me
+<script>
+  function updateClock() {
+    const now = new Date();
+    const hanoi = new Date(
+      now.toLocaleString("en-US", { timeZone: "Asia/Ho_Chi_Minh" })
+    );
+    const time = hanoi.toLocaleTimeString("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    });
+    document.getElementById("live-clock").textContent = time;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+</script>
 
-Hi, I’m **Nguyen Trong Phuc** — but you can just call me **<abbr title="it’s pronounced “Fook” (/fuk/), my Vietnamese given name">Phuc</abbr>** (/fuk/) — also known as **PX03 / PeterKing** 👋  
-I’m a **software developer** passionate about building **modern**, **scalable**, and **creative** applications.
+---
 
-### 🌐 Connect With Me
+```bash
+$ whoami
+> Nguyen Trong Phuc [PX03]
+> Software Developer
 
-<p align="center">
-  <a href="https://ntrongphuc.io.vn">
-    <img src="https://img.shields.io/badge/Portfolio-ntrongphuc.io.vn-FF3B3B?style=for-the-badge&logo=firefox-browser&logoColor=white">
-  </a>
-  <a href="mailto:ntrongphuc.1302@gmail.com">
-    <img src="https://img.shields.io/badge/Email-ntrongphuc.1302%40gmail.com-CC2B2B?style=for-the-badge&logo=gmail&logoColor=white">
-  </a>
-  <a href="https://steamcommunity.com/id/ntrongphuc1302/">
-    <img src="https://img.shields.io/badge/Steam-ntrongphuc1302-171A21?style=for-the-badge&logo=steam&logoColor=white">
-  </a>
-  <a href="https://discord.com/users/358614972223193089">
-    <img src="https://img.shields.io/badge/Discord-@PX03-5865F2?style=for-the-badge&logo=discord&logoColor=white">
-  </a>
-</p>
+$ cat about.txt
+> You can call me Phuc.
+> I build modern, scalable, and creative applications.
+> Also known as PX03 around the internet.
 
-### 🐍 My Coding Journey in Motion
+$ echo $LOCATION
+> Vietnam
 
-<p align="center">
-  <img src="https://github.com/ntrongphuc1302/ntrongphuc1302/blob/output/github-contribution-grid-snake-dark.svg" alt="snake animation" />
-</p>
+$ uptime
+> Coding since 2022 — still shipping.
+```
+
+---
+
+### Connect
+
+| Command | Contact |
+|---|---|
+| `gh user` | [github.com/ntrongphuc1302](https://github.com/ntrongphuc1302) |
+| `mail -to` | [ntrongphuc.1302@gmail.com](mailto:ntrongphuc.1302@gmail.com) |
