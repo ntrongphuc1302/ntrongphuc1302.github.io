@@ -76,18 +76,18 @@ def make_svg(
     cfg = svg_config
 
     # Truncate long text
-    name = truncate_text(name, 20)
-    tagline = truncate_text(tagline, 45)
-    about = truncate_text(about, 60)
+    name = truncate_text(name, 25)
+    tagline = truncate_text(tagline, 70)
+    about = truncate_text(about, 90)
     github_link = truncate_text(github_link, 30)
     email_link = truncate_text(email_link, 30)
 
     # Marquee
     tagline_marquee = calculate_marquee(
-        tagline, cfg.tagline_font_size, container_width=cfg.width - 80
+        tagline, cfg.tagline_font_size, container_width=cfg.width - 120
     )
     about_marquee = calculate_marquee(
-        about, cfg.about_font_size, container_width=cfg.width - 80
+        about, cfg.about_font_size, container_width=cfg.width - 120
     )
 
     # Time

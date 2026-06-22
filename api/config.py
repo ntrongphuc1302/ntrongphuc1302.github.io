@@ -23,42 +23,42 @@ HEX_COLOR_PATTERN = re.compile(r"^[0-9a-fA-F]{6}$")
 class SVGConfig:
     """SVG widget configuration and defaults."""
 
-    width: int = 540
-    height: int = 180
-    border_radius: int = 8
+    width: int = 800
+    height: int = 450
+    border_radius: int = 12
 
-    padding_top: int = 16
-    padding_right: int = 20
-    padding_bottom: int = 16
-    padding_left: int = 20
-    border_width: int = 1
+    padding_top: int = 24
+    padding_right: int = 30
+    padding_bottom: int = 24
+    padding_left: int = 30
+    border_width: int = 2
 
     # Status dot
-    dot_size: int = 8
-    dot_margin_right: int = 8
-    dot_top_offset: int = 20
+    dot_size: int = 12
+    dot_margin_right: int = 12
+    dot_top_offset: int = 30
 
     # Clock
-    clock_font_size: int = 11
-    clock_margin_left: int = 10
+    clock_font_size: int = 14
+    clock_margin_left: int = 15
 
     # Hero section
-    name_font_size: int = 28
-    name_margin_top: int = 8
-    tagline_font_size: int = 13
-    tagline_margin_top: int = 2
+    name_font_size: int = 36
+    name_margin_top: int = 10
+    tagline_font_size: int = 16
+    tagline_margin_top: int = 4
 
     # About
-    about_font_size: int = 12
-    about_margin_top: int = 10
+    about_font_size: int = 14
+    about_margin_top: int = 14
     about_max_lines: int = 2
 
     # Links section
-    links_margin_top: int = 10
-    link_font_size: int = 12
-    link_height: int = 26
-    link_gap: int = 6
-    link_icon_size: int = 14
+    links_margin_top: int = 14
+    link_font_size: int = 14
+    link_height: int = 34
+    link_gap: int = 10
+    link_icon_size: int = 18
 
     # Default colors (hex without #)
     default_background: str = "0c0c0c"
